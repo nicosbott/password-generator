@@ -1,30 +1,65 @@
 var generateBtn = document.querySelector("#generate");
 
-// Assignment code here
-var numbers=["0","1","2","3","4","5","6","7","8","9"];
-var lowerCase=["a"];
-//var upperCase=
-//var specialCharacters=
-function generatePasswordPrompts() {
-  var length = prompt("Enter length between 8 and 128 characters.")
-  console.log(length)
-  //if length <8 and >128 put alert: enter between 8 and 128
-  var hasNumbers = confirm("Do you want numbers?")
-  console.log(hasNumbers)
-  //write confirm for uc, lc, spc
-  //put an alert: to select at least one option type if hasNumbers etc etc
+// Create array for each type of character that can be included in password
+var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numericCharacters = ["0","1","2","3","4","5","6","7","8","9"];
+var specialCharacters = ["!", "@", "#", "$", "%", "&", "*", "?", "~", "-"];
+
+// ***Function to generate series of options/'questions' for password
+function generatePasswordOptions() {
+  var length = parseInt(prompt("How many characters would you like your password to contain?"));
+  
+    // loop to make sure response is a whole number within parameters set
+    while(length < 8 || length > 128 || isNaN(length)) {
+      alert("Input value must be a whole number between 8 and 128.");
+      var length = parseInt(prompt("How many characters would you like your password to contain?"));
+    }
+
+      alert("Your password will contain " + length + " characters.");
+
+  // ***
+  var hasLowerCaseCharacters = confirm("Click 'OK' to include lower case characters?");
+  console.log(hasLowerCaseCharacters);
+  var hasUpperCaseCharacters = confirm("Click 'OK' to include upper case characters?");
+  console.log(hasUpperCaseCharacters);
+  var hasNumericCharacters = confirm("Click 'OK' to include numbers?");
+  console.log(hasNumericCharacters);
+  var hasSpecialCharacters = confirm("Click 'OK' to include special characters?");
+  console.log(hasSpecialCharacters);
+
+    // loop to make sure reponse contains at least ONE character type
+    while(hasLowerCaseCharacters === false && hasUpperCaseCharacters === false && hasNumericCharacters === false && hasSpecialCharacters === false) {
+      alert("You must choose at least one character type.");
+      var hasLowerCaseCharacters = confirm("Click 'OK' to include lower case characters?");
+      var hasUpperCaseCharacters = confirm("Click 'OK' to include upper case characters?");
+      var hasNumericCharacters = confirm("Click 'OK' to include numbers?");
+      var hasSpecialCharacters = confirm("Click 'OK' to include special characters?");
+    }
+
+  // var to capture users reponse
   var passwordOptions = {
-    length:length,
-    hasNumbers:hasNumbers
-    //define the rest of the option uc, lc, spc 
-  }
+    length: length,
+    hasLowerCaseCharacters: hasLowerCaseCharacters,
+    hasUpperCaseCharacters: hasUpperCaseCharacters,
+    hasNumericCharacters: hasNumericCharacters,
+    hasSpecialCharacters: hasSpecialCharacters,
+  };
+
   return passwordOptions;
 }
-// Get references to the #generate element
 
-function generatePassword() {
-  var options = generatePasswordPrompts()
+// Function to generate random characters from array
+function generateRandomCharacters(arr) {
+
 }
+
+// Get references to the #generate element
+function generatePassword() {
+  var options = generatePasswordOptions();
+}
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
