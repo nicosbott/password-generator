@@ -49,6 +49,19 @@ function generatePasswordOptions() {
   return passwordOptions;
 }
 
+var passwordCharacters = []
+
+if (hasLowerCaseCharacters) {
+  passwordOptions = passwordCharacters.concat(lowerCaseCharacters)
+}
+
+if (hasUpperCaseCharacters) {
+  passwordCharacters = passwordsCharacters.concat(upperCaseCharacters)
+}
+
+if (hasNumericCharacters) {
+  passwordCharacters = passwordCharacters.concat(numericCharacters)
+}
 // Function to generate random characters from array
 function generateRandomCharacters(arr) {
 
