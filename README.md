@@ -1,14 +1,14 @@
 # Password Generator
 
 ## Description
-This weeks challenge was to complete a password generator giving a starter code. HTML and CSS were given, as well as, a partial JavaScript inorder to complete the password generator.
+This weeks challenge was to complete a password generator given a starter code. A complete HTML and CSS was given, as well as, a partial JavaScript in order to complete the password generator.
 
 ## Tasks Completed
 When the "Generate Button" is pressed a unique password is generated based on user input.
 
 Created arrays holding the criteria to be used in making a password based on the user input.
 
-Created a list of prompts or questions that the user can click through inorder to sepcify what criteria they would like their password to include.
+Created a list of prompts or questions that the user can click through in order to sepcify what criteria they would like their password to include.
 
 Created specific loops designed for user input errors to recycle through until proper responses are met for example, proper length in whole number response and that at least one character type of the 4 options was selected.
 
@@ -25,7 +25,7 @@ The following image shows the web applications appearance and functionallity:
 ##
 ## Installation
 
-[Link to deployed website]()
+[Link to deployed website](https://nicosbott.github.io/password-generator/)
 
 ## Usage
 Click on red "Generate Password" button to begin a series of user prompts.
